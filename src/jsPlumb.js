@@ -2065,7 +2065,7 @@
 			    maxConnections = p.maxConnections || -1,
 				onMaxConnections = p.onMaxConnections;
 
-			_doOne = function(el) {
+			var _doOne = function(el) {
 				
 				// get the element's id and store the endpoint definition for it.  jsPlumb.connect calls will look for one of these,
 				// and use the endpoint definition if found.

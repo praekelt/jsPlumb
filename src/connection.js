@@ -402,7 +402,7 @@
                 });
             }
             else {                    
-                editable = false;
+                var editable = false;
             }                
                 
             if (!doNotRepaint) this.repaint();
