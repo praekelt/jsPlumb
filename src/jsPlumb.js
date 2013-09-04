@@ -1398,7 +1398,12 @@
 			var _is = _currentInstance.setSuspendDrawing(true);
 			var endpoint = (typeof object == "string") ? endpointsByUUID[object] : object;			
 			if (endpoint) {		
-				_currentInstance.deleteObject({endpoint:endpoint});
+        // Make the delete silent if this is a floating endpoint so detach
+        // events are only fired when established connections are detached
+				_currentInstance.deleteObject({
+          endpoint:endpoint,
+          fireEvent: !endpoint.isFloating()
+        });
 			}
 			if(!_is) _currentInstance.setSuspendDrawing(false, doNotRepaintAfterwards);
 			return _currentInstance;									
